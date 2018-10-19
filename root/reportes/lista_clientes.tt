@@ -1,0 +1,10 @@
+<h2>Reporte auxiliar: Por entidad/cliente</h2>
+<form method="post">
+  <input type="date" name="fechainicio" placeholder=""/>
+  <select name="entidad">
+    [% FOREACH cliente IN clientes %]
+      <option value="[% cliente.entidadid %]">[% cliente.nombreentidad %]</option>
+    [% END %]
+  </select>
+  <input type="submit" value="Ver reporte" />
+</form>

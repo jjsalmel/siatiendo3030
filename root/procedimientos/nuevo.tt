@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <form method="post" class="container">
+        <h3>Nuevo procedimiento</h3>
+        [% IF error %]<div class="bg-warning">[% error %]</div>[% END %]
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="referencia">Referencia:</label>
+              <input class="form-control" id="referencia" value="[% parametros.referencia %]" name="referencia"/>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="fecha_registro">Registro:</label>
+              <input class="form-control" id="fecha_registro" value="[% parametros.fecha_registro %]" name="fecha_registro"type="date"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="revision">Revisión No:</label>
+              <input class="form-control" id="revision" value="[% parametros.revision %]" name="revision"/>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="fecha_modificacion">Última modificación:</label>
+              <input class="form-control" id="fecha_modificacion" value="[% parametros.fecha_modificacion %]" name="fecha_modificacion" type="date"/>
+            </div>            
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="area">Área:</label>
+          <input class="form-control" value="[% parametros.area %]" name="area" id="area"/>
+        </div>
+        <div class="form-group">
+          <label for="titulo">Título:</label>
+          <input class="form-control" value="[% parametros.titulo %]" name="titulo" id="titulo"/>
+        </div>
+        <div class="form-group">
+          <label for="actividad">Actividad:</label>
+          <input class="form-control" value="[% parametros.actividad %]" name="actividad" id="actividad"/>
+        </div>
+        <div class="form-group">
+          <label for="objetivo">Objetivo:</label>
+          <input class="form-control" value="[% parametros.objetivo %]" name="objetivo" id="objetivo"/>
+        </div>
+        <div class="form-group">
+          <label for="alcance">Alcance:</label>
+          <input class="form-control" id="alcance" value="[% parametros.alcance %]" name="alcance"/>
+        </div>
+        <div class="form-group">
+          <label for="desarrollo">Desarrollo:</label>
+          <textarea class="form-control" id="desarrollo" name="desarrollo">[% parametros.desarrollo %]</textarea>
+        </div>
+        <div class="form-group">
+          <label for="usuarioid">Encargado:</label>
+          <select id="usuarioid" name="empledoid" class="form-control">
+            [% FOREACH usuario IN usuarios %]
+            <option value='[% usuario.empleadoid %]' [% IF usuario.empleadoid == parametros.empleadoid %]selected[% END %]>[% usuario.paterno %] [% usuario.materno %], [% usuario.nombre %]</option>
+            [% END %]
+          </select>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Guardar procedimiento" />
+      </form>
+
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>

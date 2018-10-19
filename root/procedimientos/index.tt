@@ -1,0 +1,38 @@
+<h2><center>Módulo de Procedimientos</center></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="input-group">
+        <input id="buscar" type="text" class="form-control" placeholder="Palabras Clave" aria-label="Buscar por palabras clave" onkeyup="buscar()">
+        <!-- <span class="input-group-btn">
+          <button class="btn btn-secondary" onclick="buscar()" type="button">Buscar</button>
+        </span> -->
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+<div class="container-fluid" id="resultados">
+</div>
+
+<script>
+  function buscar()
+  {
+    var vBusqueda = $('#buscar').val();
+
+    if(vBusqueda == '' || vBusqueda == null || vBusqueda.length < 3)
+    {
+      $('#resultados').text('');
+      return;
+    }
+
+    $.ajax({
+      url:'/procedimientos/buscar',
+      data:{buscar:vBusqueda},
+      success:function(resp){
+        $('#resultados').text('');
+        $('#resultados').append(resp);
+      }
+    });
+  }
+</script>

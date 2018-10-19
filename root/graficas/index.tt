@@ -1,0 +1,11 @@
+<h2> Gráfico de folios</h2>
+<form method="post">
+  De: <input type="date" name="fechainicio" placeholder=""/>
+  Hasta: <input type="date" name="fechafinal" placeholder=""/>
+    <select name="orientacion">
+      <option value="1">Horizontal</option>
+      <option value="0">Vertical</option>
+    </select>
+  <br><br>
+  <input type="submit" class="btn btn-primary" value="Generar reporte" />
+</form>

@@ -1,0 +1,5 @@
+<h2>Reporte auxiliar: Por entidad/cliente</h2>
+<form method="post">
+  <input type="date" name="fechainicio" placeholder=""/>
+  <input type="submit" value="Ver reporte" />
+</form>

@@ -1,0 +1,16 @@
+<h1>Quejas y Sugerencias</h1>
+<fieldset>
+  <legend>Nueva Queja/Sugerencia</legend>
+  <form action="/sugerencias/nueva" method="post">
+    <textarea class="form-control" name="detalle" placeholder="Nueva Queja/Sugerencia" required> </textarea>
+    <input type="submit" class="btn btn-primary" value="Registrar Queja/Sugerencia" />
+  </form>
+</fieldset>
+<h3>Otras Quejas/Sugerencias</h3>
+<table>
+  [% FOREACH queja IN quejas %]
+  <tr>
+    <td>[% queja.detalle %]</td>
+  </tr>
+  [% END %]
+</table>

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="btn-group">
+    [% IF pagina > 1 %]
+    <a class="btn btn-secondary" href="/folios/lista/[% pagina - 1 %]">Anterior ([% pagina - 1 %])</a>
+    [% END %]
+    <a class="btn btn-secondary" href="/folios/lista/[% pagina + 1 %]">Siguiente ([% pagina + 1 %])</a>
+  </div>
+  <a class="btn btn-primary" href="/folios/nuevo">Nuevo folio de soporte</a>
+  <br><br>
+<table class="table table-striped table-bordered table-sm">
+  <thead>
+    <tr>
+      <th>Folio</th>
+      <th>Encargado</th>
+      <th>Entidad</th>
+      <th>Descricpion</th>
+      <th>Estado</th>
+      <th>Asignado</th>
+    </tr>
+  </thead>
+  [% FOREACH folio IN folios %]
+    <tr>
+      <td>[% folio.nofolio %]</td>
+      <td>[% folio.empleadoid.usuario %]</td>
+      <td>[% folio.entidadid.nombreentidad %]</td>
+      <td>[% folio.descripcion %]</td>
+      <td>[% folio.avanceid.estatus %]</td>
+      <td>[% folio.asignadoa.usuario%]</td>
+      <td><a class="btn btn-primary" href="/folios/ver/[% folio.nofolio %]">VER</a></td>
+    </tr>
+  [% END %]
+</table>
+</div>

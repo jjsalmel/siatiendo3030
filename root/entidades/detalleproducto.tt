@@ -1,0 +1,49 @@
+<h3><center>[% producto_entidad.entidad.nombreentidad %]</center></h3>
+<h5><center>[% producto_entidad.producto.nombre %]</center></h5>
+<br>
+<div class="container">
+  <!-- <div> -->
+    <table class="table table-hover table-sm">
+      <thead>
+        <tr><th>Fecha</th><th>Concepto</th><th>Realizó</th></tr>
+      </thead>
+      [% FOREACH detalle IN producto_entidad.search_related('detalle_producto_entidads',{},{order_by=>'fecha'}) %]
+      <tbody>
+        <tr>
+        <td>[% detalle.fecha.strftime('%d-%m-%Y') %]</td>
+        <td>[% detalle.comentario %]</td>
+        <td>([% detalle.empleado.usuario %])</td>
+        </tr>
+      </tbody>
+    [% END %]
+    </table>
+    
+  <!-- </div> -->
+</div>
+<br>
+<br>
+<form class="container" action="/entidades/nuevo_detalleproducto/[% producto_entidad.id %]">
+  <h4>Registrar actualización</h4>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="usuarioid">Empleado</label>
+      <select class="form-control" id="usuarioid" name="usuarioid" required >
+        <option value="">[Seleccione una opción]</option>
+        [% FOREACH usuario IN usuarios %]
+        <option value='[% usuario.usuario %]' [% IF usuario.usuario == c.user.username %]selected[% END %]>[% usuario.paterno %] [% usuario.materno %], [% usuario.nombre %]</option>
+        [% END %]
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="fecha">Fecha</label>
+      <input id="fecha" class="form-control" name="fecha" type="date" required/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="observacion">Detalle</label>
+      <textarea required id="observacion" class="form-control" placeholder="Describa la acción a informar" name="comentario"></textarea>
+    </div>
+  </div>
+  <input type="submit" value="Agregar" class="btn btn-primary"/>
+</form>

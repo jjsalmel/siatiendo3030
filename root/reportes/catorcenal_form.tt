@@ -1,0 +1,16 @@
+<h3>Reporte de Atención catorcenal</h3>
+<form method="post">
+  <div>
+  Usuario / Empleado
+  <select name="usuarioid">
+    [% FOREACH usuario IN usuarios %]
+    <option value='[% usuario.usuario %]'>[% usuario.paterno %][% usuario.materno %][% usuario.nombre %]</option>
+    [% END %]
+  </select>
+  </div>
+  <div>
+    Desde: <input name="inicio" class="datepicker"/>
+    Hasta: <input name="fin" class="datepicker"/>
+  </div>
+  <input type="submit" />
+</form>

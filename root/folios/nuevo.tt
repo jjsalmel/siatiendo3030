@@ -1,0 +1,34 @@
+<h3><center>Registrar folio</cemter></h3>
+<form method="post" class="container">
+  <div class="form-group">
+    <label for="fechasolicitud">Fecha de solicitud</label>
+    <input class="form-control" id="fechasolicitud" type="date" name="fechasolicitud" placeholder="Fecha de solicitud" />
+    <label for="fechainicio">Fecha de inicio</label>
+    <input class="form-control" id="fechainicio" type="date" name="fechainicio" placeholder="Fecha de inicio" />
+    <label for="fechatermino">Fecha de término</label>
+    <input class="form-control" type="date" id="fechatermino" name="fechatermino" placeholder="Fecha de término" />
+    <label for="entidadid" >Entidad / Cliente</label>
+    <select class="form-control" name="entidadid" id="entidadid">
+      [% FOREACH entidad IN entidades %]
+      <option value="[% entidad.entidadid %]">[% entidad.nombreentidad %]</option>
+      [% END %]
+    </select>
+    <label for="nombresolicitante">Solicita</label>
+    <input class="form-control" id="nombresolicitante" type="text" name="nombresolicitante" placeholder="Persona que solicita" />
+    <label for="descripcion">Detalles del requerimiento</label>
+    <textarea class="form-control" name="descripcion" placeholder="Descripcion" id="descripcion"></textarea>
+    <label for="empleadoid">Personal de Seguimiento</label>
+    <select class="form-control" name="empleadoid" id="empleadoid">
+      [% FOREACH empleado IN empleados %]
+        <option value="[% empleado.empleadoid %]">[% empleado.paterno %] [% empleado.materno %], [% empleado.nombre %]</option>
+      [% END %]
+    </select>
+    <label for="asignadoa">Personal Asignado</label>
+    <select class="form-control" name="asignadoa" id="asignadoa">
+      [% FOREACH empleado IN empleados %]
+        <option value="[% empleado.empleadoid %]">[% empleado.paterno %] [% empleado.materno %], [% empleado.nombre %]</option>
+      [% END %]
+    </select>
+    <input type="submit" class="btn btn-primary" value="Registrar Folio" />
+  </div>
+</form>

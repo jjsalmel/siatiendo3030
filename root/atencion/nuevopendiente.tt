@@ -1,0 +1,19 @@
+<h2>Nuevo pendiente</h2>
+<form method="post">
+<div>
+  Entidad/cliente<br>
+  <select name="entidad">
+    [% FOREACH entidad IN entidades %]
+    <option value="[% entidad.entidadid %]">[% entidad.nombreentidad %]</option>
+    [% END %]
+  </select>
+</div>
+<div>
+  Descripción:<br>
+  <textarea cols="80" rows="4" name="problema"></textarea>
+
+</div>
+<div>
+  <input type="submit">
+</div>
+</form>

@@ -1,0 +1,31 @@
+<div class="container">
+<div class="justify-content-end">
+<a class="btn btn-primary" href="/atencion/nueva">Nueva atención</a>
+</div>
+<br>
+<table class="table table-striped table-bordered table-sm">
+  <thead>
+    <tr>
+      <th>Encargado</th>
+      <th>Entidad</th>
+      <!-- <th>Registro</th> -->
+      <th>Problema / Actividad</th>
+      <th>Solución / Resultado</th>
+      <th></th>
+    </tr>
+  </thead>
+[% FOREACH atencion IN atenciones %]
+<tr class="[% IF atencion.solucion %]  [% ELSE %] table-warning [% END %]">
+  <td width="10%">[% atencion.usuarioid %]</td>
+  <td width="15%">[% atencion.entidadid.nombreentidad %]</td>
+  <!-- <td class="col-2">[% atencion.fechahorainicio %]</td> -->
+  <td width="35%">[% atencion.problema %]</td>
+  <td width="35%">[% atencion.solucion %]</td>
+  <td width="5%">
+    <a class="btn btn-primary" href="/atencion/ver/[% atencion.atencionid %]"> 	&#128269; </a>
+    <a class="btn btn-danger" href="/atencion/eliminar/[% atencion.atencionid %]">&#128465;</a>
+  </td>
+</tr>
+[% END %]
+</table>
+</div>

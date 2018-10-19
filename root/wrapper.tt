@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark d-print-none">
+      <a class="navbar-brand text-light" href="/">Si-Atiendo</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class=" nav-link text-light" href="/">Atención</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class=" nav-link text-light" href="/atencion/pendientes">Pendientes</a>
+          </li> -->
+          <li class="nav-item">
+            <a class=" nav-link text-light" href="/folios">Folios</a>
+          </li>
+          <li class="nav-item">
+            <a class=" nav-link text-light" href="/procedimientos">Procedimientos</a>
+          </li>
+          <!-- <li>
+            <a class="nav-link text-light" href="/entidades">Entidades</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text_light" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Entidades
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+              <!-- <a class="dropdown-item" href="/reportes/catorcenal">Reporte Catorcenal</a> -->
+              <a class="dropdown-item" href="/entidades">Lista de entidades</a>
+              <a class="dropdown-item" href="/entidades/resumen_productos">Resumen de productos/servicios</a>
+              <!-- <a class="dropdown-item" href="/reportes/global">Reporte global</a> -->
+
+            </div>
+          <!-- <li>
+            <a class="nav-link text-light" href="/proyectos">Proyectos</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text_light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reportes
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <!-- <a class="dropdown-item" href="/reportes/catorcenal">Reporte Catorcenal</a> -->
+              <a class="dropdown-item" href="/reportes/auxiliar">Reporte Auxiliar por usuario</a>
+              <a class="dropdown-item" href="/reportes/atencion_cliente">Reporte Auxiliar por cliente</a>
+              <a class="dropdown-item" href="/reportes/global">Reporte global</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text_light" href="#" id="navbarDropdownG" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Grafica
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownG">
+              <a class="dropdown-item" href="/reportes/imprimiractividades">Imprimir reporte actividades</a>
+              <a class="dropdown-item" href="/reportes/imprimirgrafica">Graficas</a>
+            </div>
+          </li>
+
+          <li>
+            <a class="nav-link text-light" href="/sugerencias">
+              Quejas y Sugerencias
+            </a>
+          </li>
+          <li>
+            <a class="nav-link text-light" href="/productos">
+              Productos / Servicios
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class=" nav-link text-light" href="/logout">Cerrar sesión</a>
+          </li>
+        </ul>
+      </div>
+
+
+
+    </nav>
+    <br>
+    <div class="">
+      [% content %]
+    </div>
+    <br>
+    <footer class="container-fluid bg-dark text-light">2017 - Coral Tecnología y Sistemas </footer>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="/static/lib/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <div class="modal fade" id="custom-modal" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div id="custom-title"></div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+
+          </div>
+          <div class="modal-body" id="custom-modal-content">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function despliegamodal(response)
+    {
+      $('#custom-title').text('');
+      $('#custom-modal-content').text('');
+      $('#custom-modal-content').append(response);
+    }
+  </script>
+</html>

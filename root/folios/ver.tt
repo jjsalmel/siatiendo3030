@@ -1,0 +1,26 @@
+<h2>Folio de Soporte #[% folio.nofolio %]</h2>
+<h4>Entidad / Cliente : [% folio.entidadid.nombreentidad %]</h4>
+<div>[% folio.descripcion %]</div>
+
+<br>
+<form action="/folios/actualizar/[% folio.nofolio %]" method="post">
+  <fieldset>
+    <legend>Estado actual:</legend>
+    [% FOREACH estado IN estados %]
+    <div class="form-check-inline ">
+      <input type="radio" id="estado_[% estado.avanceid %]" class="" name="estatus" value="[% estado.avanceid %]" [% IF folio.avanceid.avanceid == estado.avanceid %]checked[% END %]>
+      [% estado.estatus %]
+    </div>
+    [% END %]
+  </fieldset>
+
+  <fieldset>
+    <legend>Observaciones:</legend>
+    <textarea name="observaciones" cols="80">
+      [% folio.observaciones.collapse %]
+    </textarea>
+  </fieldset>
+
+
+  <input type="submit" class="btn btn-primary" value="Guardar"/>
+</form>

@@ -1,0 +1,15 @@
+<h1>Atención</h1>
+[% IF atencion.fechahorafin %]
+  [% tiempoempleado = atencion.fechahorafin - atencion.fechahorainicio %]
+[% END %]
+
+[% tiempo = ahora - atencion.fechahorainicio %]
+<h5>Tiempo empleado estimado: [% IF tiempoempleado.hours %][% tiempoempleado.hours %] Hora(s)[% END %], [% IF tiempoempleado.minutes %][% tiempoempleado.minutes %] Minuto(s)[% END %]</h5>
+<h5>Tiempo transcurrido: [% IF tiempo.hours %][% tiempo.hours %] Hora(s)[% END %], [% IF tiempo.minutes %][% tiempo.minutes %] Minuto(s)[% END %]</h5>
+<form method="post" action="/atencion/actualizar/[% atencion.atencionid %]">
+  Problema/Actividad<br>
+  <textarea cols="80" name="problema">[% atencion.problema %]</textarea><br>
+  Solución/Resultado<br>
+  <textarea cols="80" name="solucion">[% atencion.solucion %]</textarea><br>
+  <input type="submit" class="btn btn-primary">
+</form>

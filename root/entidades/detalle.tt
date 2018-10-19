@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row border border-secondary rounded">
+    <div class="col-3">Nombre:</div>
+    <div class="col-9"><div class="text-primary">[% entidad.nombreentidad %]</div></div>
+  </div>
+  <div class="row border border-secondary rounded">
+    <div class="col-3">RFC:</div>
+    <div class="col-9"><div class="text-primary">[% entidad.rfc %]</div></div>
+  </div>
+  <div class="row border border-secondary rounded">
+    <div class="col-3">Contacto:</div>
+    <div class="col-9"><div class="text-primary">[% entidad. nombredecontacto %]</div></div>
+  </div>
+  <div class="row border border-secondary rounded">
+    <div class="col-3">Ciudad:</div>
+    <div class="col-9"><div class="text-primary">[% entidad.ciudad %]</div></div>
+  </div>
+  <div class="row border border-secondary rounded">
+    <div class="col-3">Acceso remoto:</div>
+    <div class="col-9"><div class="text-primary">[% entidad.nombredominioentidad %]</div></div>
+  </div>
+  <div class="row border border-secondary rounded">
+    <div class="col-3">Base de Datos:</div>
+    <div class="col-9"><div class="text-primary">[% entidad.nombrebasededatos %]</div></div>
+  </div>
+  <a class="btn btn-primary" href="#">Editar</a>
+  <a class="btn btn-primary" href="/entidades/productos/[% entidad.entidadid %]">Ver Productos</a>
+</div>
+<script>
+  $('#custom-title').append('<h3>Ver Entidad</h3>');
+</script>

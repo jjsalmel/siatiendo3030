@@ -1,0 +1,11 @@
+<h3><center>Detalle de procedimiento</center></h3>
+<div class="container">
+  <h5><b class="text-primary">Referencia:</b> [% procedimiento.clavereg %]</h5>
+  <h5><b class="text-primary">Revisión:</b> [% procedimiento.norevision %]</h5>
+  <h5><b class="text-primary">Area:</b> [% procedimiento.areaprocedimiento %]</h5>
+  <h5><b class="text-primary">Título:</b> [% procedimiento.tituloprocedimiento %]</h5>
+  <h5><b class="text-primary">Actividad:</b> [% procedimiento.actividad %]</h5>
+  <h5><b class="text-primary">Objetivo:</b> [% procedimiento.objetivo %]</h5>
+  <h5><b class="text-primary">Alcance:</b> [% procedimiento.alcance %]</h5>
+  <pre class="border border-primary rounded">[% procedimiento.desarrollo %]</pre>
+</div>

@@ -1,0 +1,90 @@
+package Soporte;
+use Moose;
+use namespace::autoclean;
+
+use Catalyst::Runtime 5.80;
+
+use Catalyst qw/
+    -Debug
+    ConfigLoader
+    Static::Simple
+    Authentication
+
+    Session
+    Session::Store::File
+    Session::State::Cookie
+/;
+
+extends 'Catalyst';
+
+our $VERSION = '0.01';
+
+__PACKAGE__->config(
+    name => 'Soporte',
+    # Disable deprecated behavior needed by old applications
+    disable_component_resolution_regex_fallback => 1,
+    enable_catalyst_header => 1, # Send X-Catalyst header
+    default_view=>'HTML',
+    'Plugin::Authentication'=>{
+      default=>{
+        class=>'SimpleDB',
+        user_model=>'DB::Usuario',
+        password_type=>'clear',
+      },
+    },
+);
+
+__PACKAGE__->config('View::PDF' => {
+   INCLUDE_PATH => __PACKAGE__->path_to('root','pdf')
+ });
+
+
+ sub connectdbh
+ {
+ 	my ($self,$c) = @_;
+ 	# my $conexion = $c->session->{conexion};
+ 	# my $usuario = $c->session->{usuario};
+ 	# my $password = $c->session->{password};
+ 	my $esquema = $c->session->{esquema};
+
+ 	# my $dbh = DBI->connect_cached($conexion,$usuario,$password) || die DBI->errstr;
+
+   my $dbh = $c->model('DB')->storage->dbh;
+   $dbh->do("set search_path to public");
+
+ 	return $dbh;
+ }
+
+# Start the application
+__PACKAGE__->setup();
+
+=encoding utf8
+
+=head1 NAME
+
+Soporte - Catalyst based application
+
+=head1 SYNOPSIS
+
+    script/soporte_server.pl
+
+=head1 DESCRIPTION
+
+[enter your description here]
+
+=head1 SEE ALSO
+
+L<Soporte::Controller::Root>, L<Catalyst>
+
+=head1 AUTHOR
+
+angel,,,,
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
+1;

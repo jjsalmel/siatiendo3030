@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3>Entidades o clientes</h3>
+    </div>
+    <div class="col-sm">
+      <div class="btn-group">
+        [% IF pagina > 1 %]
+        <a class="btn btn-secondary" href="/entidades/lista/[% pagina - 1 %]">Anterior ([% pagina - 1 %])</a>
+        [% END %]
+        <a class="btn btn-secondary" href="/entidades/lista/[% pagina + 1 %]">Siguiente ([% pagina + 1 %])</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+<table class="table table-hover table-bordered table-striped">
+[% FOREACH entidad IN entidades %]
+  <tr>
+    <td>[% entidad.nombreentidad %]</td>
+    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#custom-modal" onclick="detalle_entidad([% entidad.entidadid %])">Ver</button></td>
+  </tr>
+[% END %]
+</table>
+</div>
+
+
+<script>
+  function detalle_entidad(entidadid)
+  {
+    $.ajax({
+      url:"/entidades/detalle/",
+      data:{entidad:entidadid},
+      success:despliegamodal
+    });
+  }
+</script>

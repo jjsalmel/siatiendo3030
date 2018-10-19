@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+    <th>Entidad / Cliente</th>
+    [% FOREACH producto IN productos %]
+    <th>[% producto.nombre %]</th>
+    [% END %]
+  </thead>
+  <tbody>
+    [% FOREACH entidad IN entidades %]
+    <tr>
+      <td>[% entidad.nombreentidad %]</td>
+      [% FOREACH producto IN productos %]
+        [% producto_entidad = entidad.search_related('producto_entidads',{'producto'=>producto.id}).first %]
+        <td>[% IF producto_entidad %]<a href="/entidades/detalleproducto/[% producto_entidad.id %]"class="btn btn-primary">Ver</a>[% ELSE %]--[% END %]</td>
+      [% END %]
+    </tr>
+    [% END %]
+  </tbody>
+</table>

@@ -1,0 +1,10 @@
+<h2>Reporte global al [% fecha %]</h2>
+[% entidad = '' %]
+[% FOREACH atencion IN  atenciones %]
+  [% IF entidad != atencion.entidadid.nombreentidad %]
+    <h3> [% atencion.entidadid.nombreentidad %] </h3>
+    [% entidad = atencion.entidadid.nombreentidad %]
+  [% END %]
+  <p>(<span class="text-info">[% atencion.usuarioid %]</span>) <span class="text-success">[% atencion.fechahorainicio.strftime('%y-%m-%d %H:%M') %]</span>: [% atencion.problema %]</p>
+  <p><span class="text-warning">[% atencion.fechahorafin.strftime('%y-%m-%d %H:%M') %]</span>: [% atencion.solucion %]</p>
+[% END %]

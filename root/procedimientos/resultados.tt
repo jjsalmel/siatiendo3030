@@ -1,0 +1,30 @@
+<div class="margin">
+  <a href="/procedimientos/nuevo" class="btn btn-primary">Crear nuevo procedimiento</a>
+</div>
+
+[% total = 0 %]
+
+<table class="table table-striped table-bordered table-sm">
+  <thead>
+    <th>Referencia</th>
+    <th>Título</th>
+    <th>Área</th>
+    <th>Actividad</th>
+    <th>Objetivo</th>
+    <th>Alcance</th>
+    <th></th>
+  </thead>
+  [% FOREACH resultado IN resultados %]
+  [% total = total + 1 %]
+  <tr>
+  <td>[% resultado.clavereg %]</td>
+  <td>[% resultado.tituloprocedimiento %]</td>
+  <td>[% resultado.areaprocedimiento %]</td>
+  <td>[% resultado.actividad %]</td>
+  <td>[% resultado.objetivo %]</td>
+  <td>[% resultado.alcance %]</td>
+  <td><a class="btn btn-primary" href="/procedimientos/ver/[% resultado.claveid %]">VER</a></td>
+  </tr>
+  [% END %]
+</table>
+<h5>[% total %] coincidencia(s)</h5>

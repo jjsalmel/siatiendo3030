@@ -1,0 +1,12 @@
+<h2>Reporte de atención por entidad</h2>
+<h3>[% entidad.nombreentidad %]</h3>
+[% FOREACH atencion IN atenciones %]
+    <div class="container">
+    [% atencion.fechahorainicio.strftime('%Y / %m / %d') %]: [% atencion.problema %]
+    <div class="container text-secondary">
+      [% atencion.solucion %]
+    </div>
+  </div>
+
+[% END %]
+</div>

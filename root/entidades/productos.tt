@@ -1,0 +1,29 @@
+<h3><center>Productos y servicios de [% entidad.nombreentidad %]</center></h3><br>
+<div class="container">
+  <table class="table table-hover table-bordered table-striped">
+    [% FOREACH producto IN productos %]
+    [% producto_entidad = entidad.search_related('producto_entidads',{ producto => producto.id }).first %]
+    <tr><td>[% producto.nombre %]</td><td>[% IF producto_entidad %]
+      <a class="btn-secondary btn" href="/entidades/detalleproducto/[% producto_entidad.id %]">Adquirido (Detalles)</a>
+      [% ELSE %]
+      <a class="btn-primary btn" href="/entidades/asignarproducto/[% entidad.entidadid %]/[% producto.id %]">No Adquirido (Registrar)</a>
+      [% END %]</td></tr>
+    [% END %]
+  </table>
+<!--   [% FOREACH producto IN productos %]
+  <div class="row">
+    <div class="col-6">
+      [% producto.nombre %]
+    </div>
+    [% producto_entidad = entidad.search_related('producto_entidads',{ producto => producto.id }).first %]
+    <div class="col-6">
+      [% IF producto_entidad %]
+      <a class="btn-secondary btn" href="/entidades/detalleproducto/[% producto_entidad.id %]">Adquirido (Detalles)</a>
+      [% ELSE %]
+      <a class="btn-primary btn" href="/entidades/asignarproducto/[% entidad.entidadid %]/[% producto.id %]">No Adquirido (Registrar)</a>
+      [% END %]
+    </div>
+
+  </div>
+  [% END %] -->
+</div>

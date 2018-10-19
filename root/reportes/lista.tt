@@ -1,0 +1,19 @@
+[% entidad = '' %]
+<div>
+[% FOREACH atencion IN atenciones %]
+[% IF entidad != atencion.entidadid.nombreentidad %]
+  </div>
+  <div class="container border border-primary rounded">
+      <b>[% atencion.entidadid.nombreentidad %]</b>
+      [% entidad = atencion.entidadid.nombreentidad %]
+[% END %]
+
+  <div class="container">
+    [% atencion.fechahorainicio.strftime('%Y / %m / %d') %]: <b>[% atencion.problema %]</b>
+    <div class="container text-primary">
+      <b>[% atencion.solucion %]</b>
+    </div>
+  </div>
+
+[% END %]
+</div>

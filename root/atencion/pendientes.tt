@@ -1,0 +1,14 @@
+<h2>Pendientes por hacer</h2>
+
+[% entidad_actual = '' %]
+[% FOREACH pendiente IN pendientes %]
+
+  [% IF entidad_actual != pendiente.entidadid.nombreentidad %]
+    <h4>[% pendiente.entidadid.nombreentidad %]</h4>
+    [% entidad_actual = pendiente.entidadid.nombreentidad %]
+  [% END %]
+
+  <div>[% pendiente.problema %] <a href="/atencion/asignar/[% pendiente.atencionid %]">Asignar</a></div>
+[% END %]
+
+<a href="/atencion/nuevopendiente">Nuevo Pendiente</a>

@@ -1,0 +1,17 @@
+<h3><center>Productos y Servicios disponibles:</center></h3>
+<div class="container">
+  [% FOREACH producto IN productos %]
+  <div class="border">
+    <h5>[% producto.nombre %]</h5> <span class="text-secondary">[% producto.descripcion %]</span>
+  </div>
+  [% END %]
+</div>
+
+<fieldset class="container mt-5">
+  <legend>Nuevo Producto/Servicio</legend>
+  <form action="/productos/nuevo" method="post" onsubmit="pedir_data();">
+    <input class="form-control" type="text" name="nombre" placeholder="Nombre corto" id="nombre" required />
+    <textarea class="form-control" name="descripcion" placeholder="Descripción" id="descripcion" required></textarea><br>
+    <input type="submit" value="Agregar producto/servicio" class="btn btn-primary float-right"/>
+  </form>
+</fieldset>
